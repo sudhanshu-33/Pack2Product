@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Card from "../components/Card";
+import Services from "../components/Services";
 import Footer from "../components/Footer";
-import logo from "../images/logo.png";
+
 
 const Home = () => {
   return (
     <>
-      <Navbar logo={logo} />
+      <Navbar />
       <Hero />
-      <Card />
+      <Services />
       <Footer />
     </>
   );

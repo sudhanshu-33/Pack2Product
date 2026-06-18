@@ -3,7 +3,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png"
 
-export default function Navbar({ logo }) {
+function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dark, setDark] = useState(false);
 
@@ -173,3 +173,4 @@ export default function Navbar({ logo }) {
     </header>
   );
 }
+export default Navbar

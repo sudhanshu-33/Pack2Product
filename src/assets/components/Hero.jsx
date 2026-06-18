@@ -1,25 +1,32 @@
 import React from "react";
-import logo from "../images/logo.png";
-import heroImage from "../images/hero.jpg"
+import heroImage from "../images/hero.jpg";
 
 export default function Hero() {
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-center min-h-[420px] sm:min-h-[480px] bg-cover bg-center px-6"
+      className="relative flex min-h-[420px] flex-col items-center justify-center bg-cover bg-center px-4 text-center sm:min-h-[600px] lg:min-h-[520px]"
       style={{ backgroundImage: `url(${heroImage})` }}
     >
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
-      <div className="relative flex flex-col items-center">
-        <h1 className="text-4xl  font-bold text-orange-500">Pack2Product</h1>
-
-        <h1 className="text-4xl sm:text-5xl mt-8 md:text-6xl font-extrabold text-white leading-tight max-w-3xl">
-          Food Brand Assitant
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center">
+        <h1 className="text-3xl font-bold text-orange-500 sm:text-4xl lg:text-5xl">
+          Pack2Product
         </h1>
-        <p className="text-2xl sm:text-sm  md:text-md font-bold text-white leading-tight max-w-xl">Making it easier for food brands to showcase their products<br/>with clear descriptions, ingredient information, and market-ready content.</p>
 
-        <button className="mt-8 rounded-full px-6 py-3 text-md font-semibold bg-white text-gray-900 hover:bg-gray-100">
-          services
+        <h2 className="mt-6 max-w-4xl text-3xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+          Food Brand Assistant
+        </h2>
+
+        <p className="mt-4 max-w-xs text-sm text-gray-200 sm:max-w-2xl sm:text-md lg:text-md font-bold">
+          Making it easier for food brands to showcase their products with
+          clear descriptions, ingredient information, and market-ready content.
+        </p>
+
+        <button className="mt-8 rounded-full bg-white px-6 py-3 text-sm font-semibold text-gray-900 transition hover:bg-gray-100 sm:px-8 sm:py-4 sm:text-base">
+          Services
         </button>
       </div>
     </section>
