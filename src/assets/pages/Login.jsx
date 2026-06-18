@@ -8,11 +8,10 @@ import {
   Globe,
   ShoppingCart,
   Brain,
-  User,
 } from "lucide-react";
 import LOGO from "../images/logo.png";
 import BACKGROUND_IMAGE from "../images/loginpage.jpg";
-function Register() {
+function Login() {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="min-h-screen bg-neutral-900 p-3 sm:p-6 lg:p-8">
@@ -53,27 +52,16 @@ function Register() {
             
             <h2 className="text-2xl font-bold text-gray-900">
               
-              Create Account
+              Welcome Back
             </h2>
             <p className="mt-1 text-sm text-gray-500">
               
-              Join our community and grow your food brand.
+              Sign in to continue
             </p>
           </div>
           {/* Form */}
           <div className="mt-8 flex flex-col gap-6">
             
-            {/* Full Name */}
-            <div className="relative">
-              
-              <User className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full rounded-full border border-gray-200 bg-white py-3 pl-11 pr-4 text-sm text-gray-700 outline-none focus:border-orange-300 focus:ring-2 focus:ring-orange-100"
-              />
-            </div>
-            {/* Email */}
             <div className="relative">
               
               <Mail className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
@@ -83,7 +71,6 @@ function Register() {
                 className="w-full rounded-full border border-gray-200 bg-white py-3 pl-11 pr-4 text-sm text-gray-700 outline-none focus:border-orange-300 focus:ring-2 focus:ring-orange-100"
               />
             </div>
-            {/* Password */}
             <div className="relative">
               
               <Lock className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
@@ -109,30 +96,19 @@ function Register() {
           {/* Button */}
           <button className="mt-8 w-full rounded-full bg-[#F2722B] py-3 text-sm font-semibold text-white shadow-lg shadow-orange-200 transition hover:bg-[#e0631d]">
             
-            Create Account
+            Sign In
           </button>
-          {/* Terms */}
           <p className="mt-4 text-center text-[11px] leading-relaxed text-gray-400">
             
-            By creating an account, you agree to our
-            <span className="font-medium text-[#F2722B]">
-              
-              Terms of Service
-            </span>
-            and
-            <span className="font-medium text-[#F2722B]">
-              
-              Privacy Policy
-            </span>
-            .
+            Access your workspace and continue building better <br /> product
+            listings.
           </p>
-          {/* Login Link */}
           <p className="mt-6 text-center text-sm text-gray-600">
             
-            Already have an account?
+            Don't have an account?
             <span className="cursor-pointer font-semibold text-[#F2722B]">
               
-              Login
+              Sign Up
             </span>
           </p>
         </div>
@@ -218,4 +194,4 @@ function Register() {
     </div>
   );
 }
-export default Register;
+export default Login;
