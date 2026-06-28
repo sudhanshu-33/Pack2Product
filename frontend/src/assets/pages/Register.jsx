@@ -6,6 +6,7 @@ import {
   Lock,
   Eye,
   EyeOff,
+  Package,
   ClipboardList,
   Globe,
   ShoppingCart,
@@ -29,7 +30,7 @@ function Register() {
     setError("");
     try {
       await register(name, email, password);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed!");
     }
@@ -185,12 +186,12 @@ function Register() {
               </div>
               <div className="flex items-start gap-3">
                 <div className="rounded-full bg-[#FDECE3] p-2.5 text-[#F2722B]">
-                  <Globe />
+                  <Package />
                 </div>
                 <div>
-                  <h3 className="font-bold"> SEO Keyword Suggestions </h3>
+                  <h3 className="font-bold"> Packaging Content </h3>
                   <p className="text-sm text-gray-800">
-                    Discover relevant keywords to improve product visibility.
+                    Generate  label text, storage instructions, manufacturer details.
                   </p>
                 </div>
               </div>
@@ -199,7 +200,7 @@ function Register() {
                   <ShoppingCart />
                 </div>
                 <div>
-                  <h3 className="font-bold"> E-commerce Optimization </h3>
+                  <h3 className="font-bold"> Marketplace Listing </h3>
                   <p className="text-sm text-gray-800">
                     Generate content optimized for online marketplaces.
                   </p>

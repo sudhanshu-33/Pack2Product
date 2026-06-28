@@ -23,12 +23,12 @@ export default function Footer({ brand = "Pack2Product" }) {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Features</h3>
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Services</h3>
           <ul className="mt-4 flex flex-col gap-2">
             <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-orange-500">Product Descriptions</a></li>
             <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-orange-500">Ingredient Benefits</a></li>
-            <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-orange-500">SEO Keywords</a></li>
-            <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-orange-500">E-commerce Optimization</a></li>
+            <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-orange-500">Packaging content</a></li>
+            <li><a href="#" className="text-sm text-gray-600 dark:text-gray-400 hover:text-orange-500">Marketplace Listing</a></li>
           </ul>
         </div>
 

@@ -35,7 +35,7 @@ export default function Input({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className={`w-full rounded-full border py-3 text-sm placeholder-gray-400 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 outline-none transition focus:ring-2 focus:ring-orange-100 focus:border-orange-300
+          className={`w-full rounded-full border py-3 text-sm placeholder-gray-400 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 outline-none transition 
             ${Icon ? "pl-11 pr-4" : "px-4"}
             ${error ? "border-red-400" : "border-gray-200 dark:border-gray-700"}`}
         />

@@ -7,10 +7,11 @@ const API = axios.create({
 
 API.interceptors.request.use((config) => {
   try {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    if (user?.token) {
-      config.headers.Authorization = `Bearer ${user.token}`;
-    }
+    const token = localStorage.getItem("token");
+
+if (token) {
+  config.headers.Authorization = `Bearer ${token}`;
+}
   } catch { }
   return config;
 });
@@ -30,4 +31,21 @@ API.interceptors.response.use(
 // Auth
 export const registerUser = (data) => API.post('/auth/register', data);
 export const loginUser    = (data) => API.post('/auth/login', data);
+// Content
+export const generateDescription = (data) =>
+  API.post("/content/generate", data);
 
+export const saveDescription = (data) =>
+  API.post("/content/save", data);
+
+export const getAllContent = () =>
+  API.get("/content");
+
+export const getSingleContent = (id) =>
+  API.get(`/content/${id}`);
+
+export const updateContent = (id, data) =>
+  API.put(`/content/${id}`, data);
+
+export const deleteContent = (id) =>
+  API.delete(`/content/${id}`);

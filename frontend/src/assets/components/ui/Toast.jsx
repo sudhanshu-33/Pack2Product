@@ -42,18 +42,24 @@ export default function Toast({
 
   const { bg, text, Icon, iconColor } = styles[type];
 
-  return (
-    <div
-      className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl border px-4 py-3 shadow-lg ${bg}`}
-    >
-      <Icon className={`h-5 w-5 ${iconColor}`} />
-      <p className={`text-sm font-medium ${text}`}>{message}</p>
-      <button
-        onClick={onClose}
-        className={`ml-2 ${text} opacity-60 hover:opacity-100`}
-      >
-        <X className="h-4 w-4" />
-      </button>
+ return (
+  <div
+    className={`fixed top-5 right-5 z-50 flex items-center gap-3 rounded-lg border px-4 py-3 shadow-md animate-in slide-in-from-right duration-300 ${bg}`}
+  >
+    <Icon className={`h-5 w-5 ${iconColor}`} />
+
+    <div>
+      <p className={`text-sm font-semibold ${text}`}>
+        {message}
+      </p>
     </div>
-  );
+
+    <button
+      onClick={onClose}
+      className={`${text} opacity-60 hover:opacity-100`}
+    >
+      <X className="h-4 w-4" />
+    </button>
+  </div>
+);
 }

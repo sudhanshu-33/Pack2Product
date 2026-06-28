@@ -1,6 +1,6 @@
 import React from "react";
 import Descriptor from "../images/ai_Des.png";
-import SEO from "../images/SEO.png";
+import packaging from "../images/packaging.jpg";
 import E_comm from "../images/e_comm.png";
 import Ingrediant from "../images/ingrediant.png";
 
@@ -74,20 +74,18 @@ function Services() {
         <div className="hidden md:block md:col-span-3" />
 
         <img
-          src={SEO}
+          src={packaging}
           alt="service three"
           className="md:col-span-8 w-full max-w-md md:max-w-full mx-auto h-auto md:h-64 rounded-2xl object-cover"
         />
 
         <div className="md:col-span-10 text-center md:text-left">
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-[#344D3B]">
-            SEO Keyword Suggestions
+            Packaging Content
           </h3>
 
           <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-700 leading-7">
-            Identify important search terms related to your product to improve
-            discoverability, increase online visibility, and help customers
-            find your products more easily across digital platforms.
+           Generate product label content ready for packaging, including front and back label text, storage instructions, product highlights, usage directions, and essential product specifications. Simplify label creation with clear, well-structured, and professional packaging information.
           </p>
 
           <button className="mt-5 rounded-full px-5 py-2.5 text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 mx-auto md:mx-0 block">

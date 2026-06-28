@@ -5,6 +5,7 @@ import WelcomeCard from "../components/dashboard/WelcomeCard";
 import QuickActions from "../components/dashboard/QuickActions";
 import RecentContent from "../components/dashboard/RecentContent";
 import { Button, Loader, Modal, Toast } from "../components/ui";
+import ProductDescription from "../components/dashboard/productDesci";
 
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboard");
@@ -62,38 +63,7 @@ export default function Dashboard() {
           <QuickActions />
 
           <RecentContent />
-
-          {/* Generate section */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-6 flex flex-col gap-4 shadow-sm">
-            <div>
-              <h2 className="text-base font-semibold text-gray-900">
-                Generate New Content
-              </h2>
-              <p className="text-xs text-gray-500 mt-0.5">
-                Click generate to create AI-powered product content.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3 items-center">
-              <Button onClick={handleGenerate}>
-                {loading ? "Generating..." : "Generate Content"}
-              </Button>
-              <Button variant="outline" onClick={() => setModalOpen(true)}>
-                Preview
-              </Button>
-              <Button variant="danger" onClick={() =>
-                setToast({ message: "Action cancelled.", type: "warning" })
-              }>
-                Cancel
-              </Button>
-              {loading && (
-                <div className="flex items-center gap-2">
-                  <Loader size="sm" />
-                  <span className="text-sm text-gray-500">Generating...</span>
-                </div>
-              )}
-            </div>
-          </div>
+         
 
         </main>
       </div>
