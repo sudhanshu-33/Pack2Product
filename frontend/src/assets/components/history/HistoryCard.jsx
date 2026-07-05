@@ -1,5 +1,5 @@
 import React from "react";
-import { Eye, Trash2, Calendar, Tag } from "lucide-react";
+import { Eye, Trash2, Calendar, Tag, Pencil  } from "lucide-react";
 import { deleteContent } from "../../services/api";
 
 const HistoryCard = ({
@@ -8,6 +8,8 @@ const HistoryCard = ({
   setToast,
   setSelectedItem,
   setOpenModal,
+  setEditItem,
+  setEditOpen,
 }) => {
 
   const handleDelete = async () => {
@@ -37,6 +39,10 @@ const HistoryCard = ({
     setSelectedItem(item);
     setOpenModal(true);
   };
+  const handleEdit = () => {
+  setEditItem(item);
+  setEditOpen(true);
+};
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 hover:shadow-md transition-shadow flex flex-col">
@@ -82,7 +88,7 @@ const HistoryCard = ({
         </p>
 
         {/* Buttons */}
-        <div className="grid grid-cols-2 gap-3 mt-6">
+        <div className="grid grid-cols-3 gap-3 mt-6">
 
           <button
             onClick={handleView}
@@ -99,6 +105,13 @@ const HistoryCard = ({
             <Trash2 size={16} />
             Delete
           </button>
+          <button
+  onClick={handleEdit}
+  className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-blue-500 text-white hover:bg-blue-600 transition"
+>
+  <Pencil size={16} />
+  Edit
+</button>
 
         </div>
 

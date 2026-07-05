@@ -5,12 +5,14 @@ import { getAllContent } from "../services/api";
 import Loader from "../components/ui/Loader";
 import Toast from "../components/ui/Toast";
 import ViewModal from "../components/history/ViewModal";
-
+import EditModal from "../components/history/EditModal";
 const History = () => {
   const [history, setHistory] = useState([]);
   const [filteredHistory, setFilteredHistory] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+const [editItem, setEditItem] = useState(null);
   const [toast, setToast] = useState({
     show: false,
     message: "",
@@ -97,14 +99,16 @@ const History = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {filteredHistory.length > 0 ? (
           filteredHistory.map((item) => (
-            <HistoryCard
-              key={item._id}
-              item={item}
-              fetchHistory={fetchHistory}
-              setToast={setToast}
-              setSelectedItem={setSelectedItem}
-              setOpenModal={setOpenModal}
-            />
+          <HistoryCard
+  key={item._id}
+  item={item}
+  fetchHistory={fetchHistory}
+  setToast={setToast}
+  setSelectedItem={setSelectedItem}
+  setOpenModal={setOpenModal}
+  setEditItem={setEditItem}
+  setEditOpen={setEditOpen}
+/>
           ))
         ) : (
           <div className="col-span-full">
@@ -129,6 +133,13 @@ const History = () => {
         item={selectedItem}
         onClose={() => setOpenModal(false)}
       />
+      <EditModal
+  isOpen={editOpen}
+  item={editItem}
+  onClose={() => setEditOpen(false)}
+  fetchHistory={fetchHistory}
+  setToast={setToast}
+/>
     </div>
   );
 };
