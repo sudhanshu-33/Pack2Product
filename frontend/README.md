@@ -88,9 +88,48 @@ Pack2Product
 
 # Database
 
+
 **Database Used:** MongoDB Atlas
 
 **ODM:** Mongoose
+## Set Up the Database
+
+### 1. Create a MongoDB Atlas Cluster
+
+- Create a free MongoDB Atlas account.
+- Create an M0 Cluster.
+- Create a Database User.
+- Whitelist your IP Address.
+- Copy the MongoDB Connection String.
+
+### 2. Configure Environment Variables
+
+Create a `.env` file inside the backend folder.
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the Backend
+
+```bash
+npm run dev
+```
+
+### 5. Start the Frontend
+
+```bash
+cd frontend
+npm run dev
+```
 
 ### Collections
 
