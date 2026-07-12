@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import {
@@ -124,6 +124,20 @@ function Login() {
               Sign In
             </button>
           </form>
+          <button
+  onClick={() => {
+    window.location.href = "http://localhost:5000/auth/google";
+  }}
+  className="w-full mt-4 flex items-center justify-center gap-3 border border-gray-300 rounded-lg py-3 hover:bg-gray-100 transition"
+>
+  <img
+    src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+    alt="Google"
+    className="w-5 h-5"
+  />
+
+  Continue with Google
+</button>
           <p className="mt-4 text-center text-[11px] leading-relaxed text-gray-400">
             
             Access your workspace and continue building better <br /> product

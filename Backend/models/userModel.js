@@ -17,10 +17,11 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, 'Password is required'],
-      minlength: 8,
+      minlength: 6,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('User', userSchema);
+module.exports =
+  mongoose.models.User || mongoose.model("User", userSchema);

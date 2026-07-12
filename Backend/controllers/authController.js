@@ -1,4 +1,4 @@
-const User = require('../models/Usermodel');
+const User = require('../models/userModel');
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs')
 
@@ -64,6 +64,38 @@ const loginUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+const googleCallback = async (req, res) => {
+  try {
+    const user = req.user;
 
+    const jwtToken = token(user._id);
 
-module.exports = { registerUser,loginUser };
+    res.redirect(
+      `${process.env.FRONTEND_URL}/google-success?token=${jwtToken}`
+    );
+
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+const getMe = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+
+    res.status(200).json(user);
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+module.exports = {
+  registerUser,
+  loginUser,
+  googleCallback,
+  getMe,
+};
