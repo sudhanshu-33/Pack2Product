@@ -9,8 +9,14 @@ Pack2Product is an AI-assisted web application designed for food processing busi
 ### Authentication
 - User Registration
 - User Login
+- Google OAuth Login
 - JWT Authentication
-- Protected Dashboard
+- Protected API Routes
+- Protected Frontend Routes
+- Password Hashing using bcrypt
+- Input Validation
+- Rate Limiting
+- Secure CORS Configuration
 
 ### Dashboard
 - Responsive Dashboard
@@ -57,8 +63,12 @@ Pack2Product is an AI-assisted web application designed for food processing busi
 - Express.js
 - MongoDB Atlas
 - Mongoose
-- JWT Authentication
+- JWT
+- Passport.js
+- Google OAuth 2.0
 - bcryptjs
+- express-validator
+- express-rate-limit
 
 ---
 
@@ -210,11 +220,12 @@ JWT_SECRET=your_jwt_secret
 ## Authentication
 
 | Method | Endpoint |
-|---------|----------|
+|----------|----------|
 | POST | /auth/register |
 | POST | /auth/login |
-
----
+| GET | /auth/google |
+| GET | /auth/google/callback |
+| GET | /auth/me |
 
 ## Product Description
 
@@ -226,6 +237,19 @@ JWT_SECRET=your_jwt_secret
 | GET | /content/:id |
 | PUT | /content/:id |
 | DELETE | /content/:id |
+
+---
+
+
+# Authentication Flow
+
+- User Registration
+- User Login
+- Google OAuth Login
+- JWT Token Generation
+- Protected Backend APIs
+- Protected Frontend Routes
+- Logout
 
 ---
 
@@ -250,15 +274,35 @@ JWT_SECRET=your_jwt_secret
 
 ---
 
+# Upcoming Modules
+
+- Ingredient Benefits
+- Packaging Content
+- E-commerce Optimization
+
+---
+
+# Security Features
+
+- JWT Authentication
+- Google OAuth 2.0
+- Password Hashing (bcrypt)
+- Input Validation
+- Rate Limiting
+- Protected Routes
+- Secure CORS Configuration
+
+---
+
 # Future Enhancements
 
-- AI Integration using Google Gemini
+- Google Gemini AI Integration
 - Ingredient Benefits Generator
 - Packaging Content Generator
 - E-commerce Optimization Generator
 - Multi-language Support
 - Export to PDF
-- User Profile Management
+- User Profile
 - Analytics Dashboard
 
 ---
