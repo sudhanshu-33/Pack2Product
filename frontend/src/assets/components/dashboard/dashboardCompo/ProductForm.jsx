@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RefreshCcw, Sparkles, FileText } from "lucide-react";
-import axios from "axios";
+
 import { generateDescription } from "../../../services/api";
 
 const ProductForm = ({ formData,
@@ -43,7 +43,7 @@ const ProductForm = ({ formData,
 
     const { data } = await generateDescription(formData);
 
-    setDescription(data.generatedContent);
+    setDescription(data.content);
 
     setToast({
       show: true,

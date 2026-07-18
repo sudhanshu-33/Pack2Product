@@ -6,14 +6,16 @@ import QuickActions from "../components/dashboard/QuickActions";
 import RecentContent from "../components/dashboard/RecentContent";
 import { Button, Loader, Modal, Toast } from "../components/ui";
 import ProductDescription from "../components/dashboard/productDesci";
-
+import { useAuth } from "../context/AuthContext";
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
 
+console.log("Sidebar render:", user);
   const handleGenerate = () => {
     setLoading(true);
     setTimeout(() => {
@@ -58,7 +60,7 @@ export default function Dashboard() {
         {/* Scrollable content */}
         <main className="flex-1 overflow-y-auto p-4 md:p-6 flex flex-col gap-6">
 
-          <WelcomeCard name="Sudhanshu" />
+          <WelcomeCard name={user?.name || "User"} />
 
           <QuickActions />
 

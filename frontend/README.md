@@ -5,6 +5,15 @@ Pack2Product is an AI-assisted web application designed for food processing busi
 ---
 
 # Features
+ User Registration and Login
+- JWT Authentication
+- Google OAuth Login
+- AI Product Description Generator
+- Ingredient-Based Content Generation
+- Responsive Dashboard
+- Toast Notifications
+- Loading Indicators
+- MongoDB Database Integration
 
 ### Authentication
 - User Registration
@@ -69,6 +78,27 @@ Pack2Product is an AI-assisted web application designed for food processing busi
 - bcryptjs
 - express-validator
 - express-rate-limit
+- Google Gemini API
+
+---
+
+##
+## AI Feature
+
+The application uses Google Gemini 3.5 Flash to generate SEO-friendly product descriptions based on user inputs such as:
+
+- Product Name
+- Brand Name
+- Category
+- Ingredients
+- Weight
+- Product Highlights
+- Target Audience
+- Tone
+- Description Length
+- Language
+
+The backend constructs an optimized prompt, sends it to Gemini, and returns the generated description to the frontend.
 
 ---
 
@@ -120,6 +150,7 @@ Create a `.env` file inside the backend folder.
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
 ### 3. Install Dependencies
@@ -239,6 +270,18 @@ JWT_SECRET=your_jwt_secret
 | DELETE | /content/:id |
 
 ---
+### AI
+
+- POST /api/ai/description
+
+## AI Workflow
+
+1. User enters product details.
+2. Frontend sends data to the backend.
+3. Backend creates an optimized prompt.
+4. Google Gemini generates the product description.
+5. The generated description is returned to the frontend.
+6. User can view and save the generated content.
 
 
 # Authentication Flow

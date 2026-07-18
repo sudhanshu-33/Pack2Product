@@ -33,8 +33,8 @@ API.interceptors.response.use(
 export const registerUser = (data) => API.post('/auth/register', data);
 export const loginUser    = (data) => API.post('/auth/login', data);
 // Content
-export const generateDescription = (data) =>
-  API.post("/content/generate", data);
+// export const generateDescription = (data) =>
+//   API.post("/content/generate", data);
 
 export const saveDescription = (data) =>
   API.post("/content/save", data);
@@ -50,3 +50,6 @@ export const updateContent = (id, data) =>
 
 export const deleteContent = (id) =>
   API.delete(`/content/${id}`);
+
+export const generateDescription = (data) =>
+  API.post("/api/ai/description", data);

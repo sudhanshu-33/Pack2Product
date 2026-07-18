@@ -12,28 +12,58 @@ import {
   Brain,
 } from "lucide-react";
 import LOGO from "../images/logo.png";
+import Toast from "../components/ui/Toast";
 import BACKGROUND_IMAGE from "../images/loginpage.jpg";
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
    const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+ // const [error, setError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const [toast, setToast] = useState({
+  show: false,
+  message: "",
+  type: "error",
+});
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+   // setError("");
     try {
       await login(email, password);
       navigate("/dashboard");
     } catch (err) {
-      setError("Enter valid password or email");
-    }
+  setToast({
+    show: true,
+    type: "error",
+    message:
+      err.response?.data?.message || "Enter valid email or password",
+  });
+}
   };
+//   {error && (
+//   <p className="mb-3 text-sm text-red-500 text-center">
+//     {error}
+//   </p>
+// )}
   return (
     <div className="min-h-screen bg-neutral-900 p-3 sm:p-6 lg:p-8">
-      
+      {toast.show && (
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        
+        onClose={() =>
+          setToast({
+            show: false,
+            message: "",
+            type: "success",
+          })
+        }
+      />
+    )}
       <div
         className="relative mx-auto flex w-full max-w-6xl flex-col overflow-hidden rounded-3xl shadow-2xl lg:flex-row"
         style={{
