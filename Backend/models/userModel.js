@@ -14,11 +14,15 @@ const userSchema = new mongoose.Schema(
      lowercase: true,
       trim: true,
     },
-    password: {
-      type: String,
-      required: [true, 'Password is required'],
-      minlength: 6,
-    },
+  password: {
+  type: String,
+  required: function () {
+    return !this.googleId;
+  },
+},
+googleId: {
+  type: String,
+},
   },
   { timestamps: true }
 );
