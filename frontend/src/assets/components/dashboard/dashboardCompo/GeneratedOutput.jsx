@@ -9,6 +9,7 @@ const GeneratedOutput = ({
   setToast,
 }) => {
   
+  
   // const handleCopy = () => {
   //   if (!description) return;
   //   navigator.clipboard.writeText(description);
@@ -52,7 +53,7 @@ const GeneratedOutput = ({
       type: "success",
       message: "Product description saved successfully.",
     });
-
+    setDescription("");
   } catch (error) {
 
     setToast({

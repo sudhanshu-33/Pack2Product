@@ -17,11 +17,11 @@ export default function Modal({ isOpen, onClose, title, children }) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6"
+        className="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+          <h3 className="text-base font-semibold text-gray-900 ">
             {title}
           </h3>
           <button

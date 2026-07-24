@@ -31,7 +31,12 @@ const [editItem, setEditItem] = useState(null);
 
       const { data } = await getAllContent();
 
-      setHistory(data);
+      const sorted = data.sort(
+    (a,b)=>new Date(b.createdAt)-new Date(a.createdAt)
+);
+
+setHistory(sorted);
+setFilteredHistory(sorted);
       setFilteredHistory(data);
     } catch (error) {
       setToast({

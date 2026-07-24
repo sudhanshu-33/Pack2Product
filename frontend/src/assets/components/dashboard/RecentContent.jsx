@@ -82,9 +82,15 @@ export default function RecentContent() {
 
         ) : (
 
-          <p className="text-center text-gray-400 py-6">
-            No recent content found.
-          </p>
+        <div className="py-10 text-center">
+  <p className="text-gray-500 font-medium">
+    No content generated yet.
+  </p>
+
+  <p className="text-sm text-gray-400 mt-1">
+    Generate your first description to see it here.
+  </p>
+</div>
 
         )}
 

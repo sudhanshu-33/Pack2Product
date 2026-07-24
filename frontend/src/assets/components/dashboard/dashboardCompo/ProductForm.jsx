@@ -50,7 +50,7 @@ const ProductForm = ({ formData,
       message: "Description generated successfully.",
       type: "success",
     });
-
+    
   } catch (error) {
 
     setToast({

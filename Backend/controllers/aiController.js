@@ -64,12 +64,15 @@ Instructions:
     });
 
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "AI generation failed",
-      error: error.message,
-    });
-  }
+  console.error("AI ERROR:");
+  console.error(error);
+
+  res.status(500).json({
+    success: false,
+    message: "AI generation failed",
+    error: error.message,
+  });
+}
 };
 
 module.exports = {

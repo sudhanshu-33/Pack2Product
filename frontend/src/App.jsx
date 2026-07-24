@@ -6,6 +6,7 @@ import Dashboard from "./assets/pages/Dashboard";
 import ProductDescription from "./assets/components/dashboard/productDesci";
 import History from "./assets/pages/History";
 import GoogleSuccess from "./assets/pages/GoogleSuccess";
+import Profile from "./assets/pages/Profile";
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/description" element={<ProductDescription />} />
         <Route path="/dashboard/history" element={<History />} />
+        <Route path="/dashboard/profile" element={<Profile />} />
         <Route path="/google-success" element={<GoogleSuccess />} />
       </Routes>
     </BrowserRouter>
