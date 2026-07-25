@@ -1,8 +1,69 @@
-import { User, Mail, Calendar, Shield ,Camera} from "lucide-react";
-import { useState } from "react";
+import { User, Mail, Calendar, Shield, Camera } from "lucide-react";
+import { useState, useEffect } from "react";
 import Modal from "../ui/Modal";
-export default function ProfileCard({ user }) {
+import { useAuth } from "../../context/AuthContext";
+import { updateProfile } from "../../services/api";
+
+
+export default function ProfileCard({ user,setToast }) {
+    const { setUser } = useAuth();
     const [open, setOpen] = useState(false);
+    const [formData, setFormData] = useState({
+  name: user?.name || "",
+  email: user?.email || "",
+});
+useEffect(() => {
+  setFormData({
+    name: user?.name || "",
+    email: user?.email || "",
+  });
+}, [user]);
+
+const handleSave = async () => {
+  if (!formData.name.trim() || !formData.email.trim()) {
+    setToast({
+      show: true,
+      type: "error",
+      message: "All fields are required.",
+    });
+    return;
+  }
+
+  try {
+    const { data } = await updateProfile(formData);
+
+    // Update Context
+    setUser(data.user);
+
+    // Update Local Storage
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        ...storedUser,
+        ...data.user,
+      })
+    );
+
+    setToast({
+      show: true,
+      type: "success",
+      message: data.message,
+    });
+
+    setOpen(false);
+
+  } catch (error) {
+    setToast({
+      show: true,
+      type: "error",
+      message:
+        error.response?.data?.message ||
+        "Failed to update profile.",
+    });
+  }
+};
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
 
@@ -17,7 +78,7 @@ export default function ProfileCard({ user }) {
   <div className="relative">
 
     <div className="h-24 w-24 rounded-2xl bg-green-600 flex items-center justify-center text-4xl font-bold text-white shadow-md">
-      {user?.name?.charAt(0).toUpperCase()}
+      {user?.name?.charAt(0)?.toUpperCase() || "U"}
     </div>
 
     {/* Camera Button (Future Upload) */}
@@ -137,11 +198,16 @@ export default function ProfileCard({ user }) {
         Full Name
       </label>
 
-      <input
-        type="text"
-        defaultValue={user?.name}
-        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
-      />
+    <input
+    value={formData.name}
+    onChange={(e)=>
+        setFormData({
+            ...formData,
+            name:e.target.value
+        })
+    }
+    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
+/>
     </div>
 
     {/* Email */}
@@ -151,11 +217,16 @@ export default function ProfileCard({ user }) {
         Email Address
       </label>
 
-      <input
-        type="email"
-        defaultValue={user?.email}
-        className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
-      />
+  <input
+    value={formData.email}
+    onChange={(e)=>
+        setFormData({
+            ...formData,
+            email:e.target.value
+        })
+    }
+    className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100"
+/>
     </div>
 
     {/* Buttons */}
@@ -170,6 +241,7 @@ export default function ProfileCard({ user }) {
       </button>
 
       <button
+        onClick={handleSave}
         className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 transition"
       >
         Save Changes

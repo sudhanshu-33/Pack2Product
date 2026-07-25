@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const passport = require("passport");
 const {protect} = require("../middlewares/authMiddlewares")
+const { updateProfile } = require("../controllers/authController");
+
 
 const {
   registerValidation,
@@ -41,6 +43,7 @@ router.get(
   googleCallback
 );
 router.get("/me", protect, getMe);
+router.put("/profile", protect, updateProfile);
 router.get('/test',protect,  (req, res) => {
   res.json({ message: 'Protected route working!' });
 });

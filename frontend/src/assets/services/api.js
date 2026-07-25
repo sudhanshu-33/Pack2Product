@@ -54,3 +54,6 @@ export const deleteContent = (id) =>
 
 export const generateDescription = (data) =>
   API.post("/api/ai/description", data);
+  
+export const updateProfile = (data) =>
+  API.put("/auth/profile", data);

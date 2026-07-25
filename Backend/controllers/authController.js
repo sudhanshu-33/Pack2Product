@@ -1,4 +1,4 @@
-const User = require('../models/userModel');
+const user = require('../models/userModel');
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs')
 
@@ -95,10 +95,51 @@ const getMe = async (req, res) => {
     });
   }
 };
+const User = require("../models/Usermodel");
+
+const updateProfile = async (req, res) => {
+  try {
+    const { name, email } = req.body;
+
+    if (!name || !email) {
+      return res.status(400).json({
+        success: false,
+        message: "Name and email are required.",
+      });
+    }
+
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found.",
+      });
+    }
+
+    user.name = name;
+    user.email = email;
+
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Profile updated successfully.",
+      user,
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 module.exports = {
   registerUser,
   loginUser,
   googleCallback,
   getMe,
+  updateProfile
 };
