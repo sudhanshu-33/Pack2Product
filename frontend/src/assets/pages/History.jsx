@@ -43,6 +43,7 @@ setFilteredHistory(sorted);
         show: true,
         type: "error",
         message: "Failed to load history.",
+        
       });
     } finally {
       setLoading(false);
