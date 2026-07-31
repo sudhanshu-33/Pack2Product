@@ -88,7 +88,7 @@ Brand: Nature Fresh`);
           </h2>
         </div>
         {description && (
-          <span className="flex items-center gap-1.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1.5 rounded-full text-xs font-medium">
+          <span className="flex items-center gap-1.5 bg-green-100 dark:bg-green-700 text-green-700 dark:text-white px-3 py-1.5 rounded-full text-xs font-medium">
             <CircleCheckBig size={14} />
             Generated
           </span>
@@ -128,7 +128,7 @@ Brand: Nature Fresh`);
         <button
           onClick={handleCopy}
           disabled={!description}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 text-sm font-medium text-black dark:text-black hover:bg-gray-50 dark:hover:bg-gray-700 transition hover:text-white"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 text-sm font-medium text-black dark:text-black hover:bg-gray-50 dark:hover:bg-gray-700 transition hover:text-white active:scale-95"
         >
           <Copy className="h-4 w-4" />
           Copy
@@ -137,7 +137,7 @@ Brand: Nature Fresh`);
         <button
           onClick={handleRegenerate}
           disabled={!description}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 text-sm font-medium text-black dark:text-black hover:bg-gray-50 dark:hover:bg-gray-700 transition hover:text-white"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 text-sm font-medium text-black dark:text-black hover:bg-gray-50 dark:hover:bg-gray-700 transition hover:text-white active:scale-95"
         >
           <RefreshCcw className="h-4 w-4" />
           Regenerate
@@ -146,7 +146,7 @@ Brand: Nature Fresh`);
         <button
           onClick={handleSave}
           disabled={!description}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-green-600 hover:bg-green-700 text-white text-sm font-semibold transition"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-green-600 hover:bg-green-700 text-white text-sm font-semibold transition active:scale-95"
         >
           <Save className="h-4 w-4" />
           Save Description

@@ -57,3 +57,6 @@ export const generateDescription = (data) =>
   
 export const updateProfile = (data) =>
   API.put("/auth/profile", data);
+
+export const generateIngredientBenefits = (data) =>
+  API.post("/api/ai/ingredient-benefits", data);

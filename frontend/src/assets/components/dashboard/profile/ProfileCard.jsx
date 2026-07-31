@@ -1,8 +1,8 @@
 import { User, Mail, Calendar, Shield, Camera } from "lucide-react";
 import { useState, useEffect } from "react";
-import Modal from "../ui/Modal";
-import { useAuth } from "../../context/AuthContext";
-import { updateProfile } from "../../services/api";
+import Modal from "../../ui/Modal";
+import { useAuth } from "../../../context/AuthContext";
+import { updateProfile } from "../../../services/api";
 
 
 export default function ProfileCard({ user,setToast }) {

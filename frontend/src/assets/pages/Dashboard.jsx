@@ -5,7 +5,7 @@ import WelcomeCard from "../components/dashboard/WelcomeCard";
 import QuickActions from "../components/dashboard/QuickActions";
 import RecentContent from "../components/dashboard/RecentContent";
 import { Button, Loader, Modal, Toast } from "../components/ui";
-import ProductDescription from "../components/dashboard/productDesci";
+import ProductDescription from "../pages/ProductDesci";
 import { useAuth } from "../context/AuthContext";
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboard");

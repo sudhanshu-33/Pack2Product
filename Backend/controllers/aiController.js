@@ -74,7 +74,72 @@ Instructions:
   });
 }
 };
+const generateIngredientBenefits = async (req, res) => {
+  try {
 
+    const {
+      productName,
+      category,
+      ingredients,
+      targetAudience,
+      tone,
+    } = req.body;
+
+    if (!productName || !category || !ingredients) {
+      return res.status(400).json({
+        success: false,
+        message: "Please fill all required fields.",
+      });
+    }
+
+    const prompt = `
+Instructions:
+
+1. Write ONLY 3 bullet points for each ingredient.
+2. Each bullet must contain 3–8 words.
+3. Do NOT write paragraphs.
+4. Do NOT explain benefits.
+5. Do NOT use ":" after the ingredient name.
+6. Format exactly like this:
+
+Raw Honey
+• Natural energy source
+• Rich in antioxidants
+• Naturally sweet
+
+Jaggery
+• Natural mineral source
+• Traditional sweetener
+• Rich caramel flavor
+
+7. End with:
+
+Disclaimer:
+For informational purposes only.
+
+8. Return ONLY the final output.
+`;
+
+    const response = await generateContent(prompt);
+
+    res.status(200).json({
+      success: true,
+      content: response,
+    });
+
+  } catch (error) {
+
+    console.error("AI ERROR:");
+    console.error(error);
+
+    res.status(500).json({
+      success: false,
+      message: "AI generation failed",
+      error: error.message,
+    });
+
+  }
+};
 module.exports = {
-  generateProductDescription,
+  generateProductDescription,generateIngredientBenefits
 };

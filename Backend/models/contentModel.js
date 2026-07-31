@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const contentSchema = new mongoose.Schema(
   {
@@ -8,55 +8,75 @@ const contentSchema = new mongoose.Schema(
       required: true,
     },
 
+    // AI Tool Used
+    type: {
+      type: String,
+      enum: [
+        "Product Description",
+        "Ingredient Benefits",
+        "Packaging Labels",
+        "Marketplace Listings",
+      ],
+      required: true,
+    },
+
+    // Common Product Information
     productName: {
       type: String,
       required: true,
+      trim: true,
     },
 
     brandName: {
       type: String,
+      trim: true,
     },
 
     category: {
       type: String,
+      trim: true,
     },
 
     ingredients: {
       type: String,
+      trim: true,
     },
 
     weight: {
       type: String,
+      trim: true,
     },
 
     highlights: {
       type: String,
+      trim: true,
     },
 
     audience: {
       type: String,
+      trim: true,
     },
 
     tone: {
       type: String,
+      trim: true,
     },
 
     language: {
       type: String,
+      trim: true,
     },
 
     length: {
       type: String,
+      trim: true,
     },
 
-    type: {
-      type: String,
-      default: "Product Description",
-    },
-
+    // AI Generated Output
     generatedContent: {
       type: String,
       required: true,
+      trim: true,
     },
   },
   {
@@ -64,4 +84,4 @@ const contentSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Content",contentSchema );
+module.exports = mongoose.model("Content", contentSchema);

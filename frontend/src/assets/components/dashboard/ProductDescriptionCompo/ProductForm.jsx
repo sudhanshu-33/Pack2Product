@@ -90,10 +90,10 @@ const ProductForm = ({ formData,
   };
 
   const inputClass =
-    "w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white dark:text-black px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition";
+    "w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white dark:text-black px-4 py-2.5 text-sm ";
 
   const selectClass =
-    "w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white dark:text-black px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 transition";
+    "w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white dark:text-black px-4 py-2.5 text-sm";
 
   const labelClass =
     "block text-sm font-medium text-gray-700 dark:text-gray-900 mb-1.5";
@@ -105,11 +105,11 @@ const ProductForm = ({ formData,
         <div>
           <div className="flex items-center  gap-2 mb-1">
             <FileText className="h-5 w-5 sm:h-6 sm:w-6  text-green-600 shrink-0" />
-            <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-grey-900">
+            <h1 className="text-3xl sm:text-2xl font-bold text-gray-900 dark:text-gray-900">
               Product Description Generator
             </h1>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-600 mt-1">
+          <p className="text-md text-gray-700 dark:text-gray-600 mt-1">
             Generate SEO-friendly product descriptions that attract customers
             and boost sales.
           </p>
@@ -123,7 +123,7 @@ const ProductForm = ({ formData,
           <div className="h-8 w-8  flex items-center justify-center shrink-0">
             <FileText className="h-4 w-4 text-green-600" />
           </div>
-          <h2 className="text-base font-semibold text-gray-900 dark:text-grey-900">
+          <h2 className="text-base font-semibold text-gray-900 dark:text-black">
             Product Information
           </h2>
         </div>
@@ -283,7 +283,7 @@ const ProductForm = ({ formData,
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 sm:mt-10">
           <button
             onClick={handleClear}
-            className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 text-sm font-medium text-black dark:text-black hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-white transition w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 text-sm font-medium text-black dark:text-black hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-white transition w-full sm:w-auto active:scale-95"
           >
             <RefreshCcw className="h-4 w-4 shrink-0" />
             Clear
@@ -291,7 +291,7 @@ const ProductForm = ({ formData,
 
           <button
             onClick={handleGenerate}
-            className="flex items-center justify-center gap-2 px-8 py-2.5 rounded-xl bg-green-600 hover:bg-green-700 text-white text-sm font-semibold transition w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 px-8 py-2.5 rounded-xl bg-green-600 hover:bg-green-700 text-white text-sm font-semibold transition w-full sm:w-auto active:scale-95"
           >
             <Sparkles className="h-4 w-4 shrink-0" />
             Generate Description

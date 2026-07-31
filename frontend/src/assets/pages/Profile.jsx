@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { getAllContent } from "../services/api";
 
-import ProfileCard from "../components/profile/ProfileCard";
-import ProfileStats from "../components/profile/ProfileStats";
+import ProfileCard from "../components/dashboard/profile/ProfileCard";
+import ProfileStats from "../components/dashboard/profile/ProfileStats";
 import Toast from "../components/ui/Toast";
 
 export default function Profile() {

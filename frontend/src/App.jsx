@@ -3,7 +3,8 @@ import Register from "./assets/pages/Register";
 import Login from "./assets/pages/Login";
 import Home from "./assets/pages/Home";
 import Dashboard from "./assets/pages/Dashboard";
-import ProductDescription from "./assets/components/dashboard/productDesci";
+import ProductDescription from "../src/assets/pages/ProductDesci";
+import IngredientBenefits from "../src/assets/pages/IngredientBenefits";
 import History from "./assets/pages/History";
 import GoogleSuccess from "./assets/pages/GoogleSuccess";
 import Profile from "./assets/pages/Profile";
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/description" element={<ProductDescription />} />
+        <Route path="/dashboard/ingredient-benefits" element={<IngredientBenefits />} />
         <Route path="/dashboard/history" element={<History />} />
         <Route path="/dashboard/profile" element={<Profile />} />
         <Route path="/google-success" element={<GoogleSuccess />} />

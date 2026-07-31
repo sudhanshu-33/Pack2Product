@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ProductForm from "../dashboard/dashboardCompo/ProductForm";
-import GeneratedOutput from "../dashboard/dashboardCompo/GeneratedOutput";
-import Loader from "../ui/Loader";
-import Toast from "../ui/Toast";
+import ProductForm from "../components/dashboard/ProductDescriptionCompo/ProductForm"
+import GeneratedOutput from "../components/dashboard/ProductDescriptionCompo/GeneratedOutput";
+import Loader from "../components/ui/Loader"
+import Toast from "../components/ui/Toast";
 
 function ProductDescription() {
   const [formData, setFormData] = useState({
