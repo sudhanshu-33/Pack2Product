@@ -1,4 +1,4 @@
-const { generateContent } = require("../services/geminiService");
+const { generateContent } = require("../Services/geminiService");
 
 const generateProductDescription = async (req, res) => {
   try {
