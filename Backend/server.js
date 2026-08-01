@@ -26,6 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 connectDB();
 // app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+console.log("FRONTEND_URL =", process.env.FRONTEND_URL);
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:5173",
