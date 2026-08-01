@@ -60,3 +60,6 @@ export const updateProfile = (data) =>
 
 export const generateIngredientBenefits = (data) =>
   API.post("/api/ai/ingredient-benefits", data);
+
+export const generatePackagingLabel = (data) =>
+  API.post("/api/ai/product-label", data);

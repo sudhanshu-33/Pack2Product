@@ -30,7 +30,7 @@ export default function QuickActions() {
           </button>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3 shadow-sm">
+        <div onClick={() => navigate("/dashboard/ingredient-benefits")} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3 shadow-sm">
           <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
             <Leaf className="h-5 w-5 text-purple-500" />
           </div>

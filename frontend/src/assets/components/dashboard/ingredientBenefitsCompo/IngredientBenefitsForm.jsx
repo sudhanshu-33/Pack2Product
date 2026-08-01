@@ -48,8 +48,8 @@ const IngredientBenefitsForm = ({
     }
   };
 
-  const inputClass = "w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 ";
-  const selectClass = "w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 ";
+  const inputClass = "w-full rounded-xl border border-gray-700 bg-white px-4 py-2.5 text-sm text-gray-900 ";
+  const selectClass = "w-full rounded-xl border border-gray-700 bg-white px-4 py-2.5 text-sm text-gray-900 ";
   const labelClass = "block text-sm font-medium text-gray-800 mb-1.5";
 
   return (
@@ -119,7 +119,7 @@ const IngredientBenefitsForm = ({
               onChange={handleChange}
               maxLength={500}
               required
-              className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 "
+              className="w-full rounded-xl border border-gray-700 bg-white px-4 py-3 text-sm text-gray-900 "
             />
           </div>
 

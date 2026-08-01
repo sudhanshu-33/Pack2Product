@@ -92,15 +92,28 @@ const generateIngredientBenefits = async (req, res) => {
       });
     }
 
-    const prompt = `
+   const prompt = `
+You are an expert food product content writer.
+
+Generate concise ingredient benefits for an e-commerce product.
+
+Product Details:
+- Product Name: ${productName}
+- Category: ${category}
+- Ingredients: ${ingredients}
+- Target Audience: ${targetAudience || "General Consumers"}
+- Tone: ${tone || "Professional"}
+
 Instructions:
 
-1. Write ONLY 3 bullet points for each ingredient.
-2. Each bullet must contain 3–8 words.
-3. Do NOT write paragraphs.
-4. Do NOT explain benefits.
-5. Do NOT use ":" after the ingredient name.
-6. Format exactly like this:
+1. List each ingredient separately.
+2. Write EXACTLY 3 bullet points for each ingredient.
+3. Each bullet must contain ONLY 3-8 words.
+4. Do NOT write paragraphs.
+5. Do NOT explain benefits.
+6. Use simple marketing-friendly language.
+7. Do NOT make medical claims.
+8. Follow this format EXACTLY:
 
 Raw Honey
 • Natural energy source
@@ -108,16 +121,14 @@ Raw Honey
 • Naturally sweet
 
 Jaggery
-• Natural mineral source
 • Traditional sweetener
+• Natural mineral source
 • Rich caramel flavor
-
-7. End with:
 
 Disclaimer:
 For informational purposes only.
 
-8. Return ONLY the final output.
+9. Return ONLY the final output.
 `;
 
     const response = await generateContent(prompt);
@@ -140,6 +151,89 @@ For informational purposes only.
 
   }
 };
+
+const generatePackagingLabel = async (req, res) => {
+  try {
+    const {
+      productName,
+      brandName,
+      category,
+      ingredients,
+      weight,
+      storage,
+      mfgDate,
+      bestBeforeType,
+      shelfLife,
+      expiryDate,
+      manufacturerName,
+      manufacturerAddress,
+      country,
+      foodType,
+      allergens,
+      usage,
+      disclaimer,
+    } = req.body;
+
+    const prompt = `
+You are an expert food packaging label writer.
+
+Generate a professional Front Label and Back Label for a food product.
+
+Product Information
+
+Product Name: ${productName}
+Brand Name: ${brandName}
+Category: ${category}
+Ingredients: ${ingredients}
+Net Weight: ${weight}
+Storage Instructions: ${storage}
+Manufacturing Date: ${mfgDate}
+Best Before: ${
+  bestBeforeType === "shelfLife"
+    ? shelfLife
+    : expiryDate
+}
+Manufacturer Name: ${manufacturerName}
+Manufacturer Address: ${manufacturerAddress}
+Country of Origin: ${country}
+Food Type: ${foodType}
+
+Optional Information
+
+Allergen Information: ${allergens}
+Usage Instructions: ${usage}
+Disclaimer: ${disclaimer}
+
+Instructions:
+
+1. Generate a professional packaging label.
+2. Divide the output into FRONT LABEL and BACK LABEL.
+3. Include all mandatory fields.
+4. Optional fields (Allergen Information, Usage Instructions, Disclaimer) must be included ONLY if they contain a value.
+5. If any optional field is empty, null, undefined, "Not Provided", or missing, completely omit that section.
+6. Never print empty headings.
+7. Never print "Not Provided", "N/A", or blank values.
+8. Keep the formatting clean and easy to read.
+9. Return only the final packaging label.
+`;
+
+    const response = await generateContent(prompt);
+
+    res.status(200).json({
+      success: true,
+      content: response,
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to generate packaging label.",
+      error: error.message,
+    });
+
+  }
+};
 module.exports = {
-  generateProductDescription,generateIngredientBenefits
+  generateProductDescription,generateIngredientBenefits,generatePackagingLabel
 };
