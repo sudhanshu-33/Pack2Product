@@ -94,7 +94,7 @@ const getMe = async (req, res) => {
     });
   }
 };
-const User = require("../models/Usermodel");
+const User = require("../models/userModel");
 
 const updateProfile = async (req, res) => {
   try {
