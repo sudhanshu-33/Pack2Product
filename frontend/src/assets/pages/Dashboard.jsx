@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu } from "lucide-react";
-import Sidebar from "../components/dashboard/Sidebar";
+import Sidebar from "../components/dashboard/SIdebar";
 import WelcomeCard from "../components/dashboard/WelcomeCard";
 import QuickActions from "../components/dashboard/QuickActions";
 import RecentContent from "../components/dashboard/RecentContent";
