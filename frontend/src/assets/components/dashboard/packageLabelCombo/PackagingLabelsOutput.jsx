@@ -46,7 +46,7 @@ setToast,
     await saveDescription({
       ...formData,
       generatedContent: label,
-      type: "Packaging Label",
+      type: "Packaging Labels",
     });
 
     setToast({

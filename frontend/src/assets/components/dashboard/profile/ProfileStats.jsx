@@ -27,15 +27,15 @@ export default function ProfileStats({ contents,user }) {
         <div className="grid grid-cols-2 gap-4">
           <StatCard
   icon={<FileText />}
-  title="Generated"
+  title="Content"
   value={generated}
 />
 
-          <StatCard icon={<Bookmark />} title="Saved" value={saved} />
+          <StatCard icon={<Bookmark />} title="Saved items" value={saved} />
 
           <StatCard icon={<Sparkles />} title="This Month" value={thisMonth} />
 
-          <StatCard icon={<Activity />} title="Status" value={user ? "Active" : "Offline"} green />
+          <StatCard icon={<Activity />} title="Account" value={user ? "Active" : "Offline"} green />
         </div>
       </div>
 
@@ -68,7 +68,7 @@ export default function ProfileStats({ contents,user }) {
 
     <div>
       <p className="text-sm font-semibold text-gray-900">
-        {saved} Descriptions
+        {saved} Saved Items
       </p>
 
       <p className="text-xs text-gray-500">

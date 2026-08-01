@@ -1,5 +1,8 @@
 import React from "react";
-import { Eye, Trash2, Calendar, Tag, Pencil  } from "lucide-react";
+import { Eye, Trash2, Calendar, Tag, Pencil, FileText,
+  Leaf,
+  Package,  } from "lucide-react";
+
 import { deleteContent } from "../../services/api";
 
 const HistoryCard = ({
@@ -21,7 +24,7 @@ const HistoryCard = ({
       setToast({
         show: true,
         type: "success",
-        message: "Description deleted successfully.",
+        message: "Item deleted successfully.",
       });
 
     } catch (error) {
@@ -30,10 +33,25 @@ const HistoryCard = ({
         type: "error",
         message:
           error.response?.data?.message ||
-          "Failed to delete description.",
+          "Failed to delete item.",
       });
     }
   };
+  const getTypeIcon = (type) => {
+  switch (type) {
+    case "Product Description":
+      return <FileText size={18} className="text-blue-600" />;
+
+    case "Ingredient Benefits":
+      return <Leaf size={18} className="text-green-600" />;
+
+    case "Packaging Labels":
+      return <Package size={18} className="text-orange-600" />;
+
+    default:
+      return <Tag size={18} />;
+  }
+};
 
   const handleView = () => {
     setSelectedItem(item);
@@ -59,7 +77,7 @@ const HistoryCard = ({
             </h2>
 
             <div className="flex items-center gap-2 mt-1">
-              <Tag size={13} className="text-gray-400" />
+              {getTypeIcon(item.type)}
               <span className="text-sm text-gray-500">
                 {item.brandName}
               </span>
@@ -68,7 +86,7 @@ const HistoryCard = ({
           </div>
 
           <span className="bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full">
-            Generated
+            {item.type}
           </span>
 
         </div>

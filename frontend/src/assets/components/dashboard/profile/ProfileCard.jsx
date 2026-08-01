@@ -8,6 +8,7 @@ import { updateProfile } from "../../../services/api";
 export default function ProfileCard({ user,setToast }) {
     const { setUser } = useAuth();
     const [open, setOpen] = useState(false);
+    const [saving, setSaving] = useState(false);
     const [formData, setFormData] = useState({
   name: user?.name || "",
   email: user?.email || "",
@@ -20,6 +21,7 @@ useEffect(() => {
 }, [user]);
 
 const handleSave = async () => {
+
   if (!formData.name.trim() || !formData.email.trim()) {
     setToast({
       show: true,
@@ -29,13 +31,26 @@ const handleSave = async () => {
     return;
   }
 
-  try {
-    const { data } = await updateProfile(formData);
+  if (!/\S+@\S+\.\S+/.test(formData.email.trim())) {
+    setToast({
+      show: true,
+      type: "error",
+      message: "Please enter a valid email address.",
+    });
+    return;
+  }
 
-    // Update Context
+  try {
+
+    setSaving(true);
+
+    const { data } = await updateProfile({
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+    });
+
     setUser(data.user);
 
-    // Update Local Storage
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
     localStorage.setItem(
@@ -55,6 +70,7 @@ const handleSave = async () => {
     setOpen(false);
 
   } catch (error) {
+
     setToast({
       show: true,
       type: "error",
@@ -62,7 +78,13 @@ const handleSave = async () => {
         error.response?.data?.message ||
         "Failed to update profile.",
     });
+
+  } finally {
+
+    setSaving(false);
+
   }
+
 };
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
@@ -151,7 +173,11 @@ const handleSave = async () => {
             label="Joined"
             value={
               user?.createdAt
-                ? new Date(user.createdAt).toLocaleDateString()
+                ? new Date(user.createdAt).toLocaleDateString("en-IN", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+})
                 : "Recently"
             }
           />
@@ -242,9 +268,10 @@ const handleSave = async () => {
 
       <button
         onClick={handleSave}
+        disabled={saving}
         className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700 transition"
       >
-        Save Changes
+        {saving ? "Saving..." : "Save Changes"}
       </button>
 
     </div>

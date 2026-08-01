@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { getAllContent } from "../services/api";
-
+import Loader from "../components/ui/Loader";
 import ProfileCard from "../components/dashboard/profile/ProfileCard";
 import ProfileStats from "../components/dashboard/profile/ProfileStats";
 import Toast from "../components/ui/Toast";
@@ -11,7 +11,7 @@ export default function Profile() {
   const { user } = useAuth();
 
   const [contents, setContents] = useState([]);
-  
+  const [loading,setLoading]=useState(false);
 
   const [toast, setToast] = useState({
     show: false,
@@ -24,22 +24,28 @@ export default function Profile() {
   }, []);
 
   const fetchContent = async () => {
-    try {
-      const { data } = await getAllContent();
-      setContents(data);
-    } catch (err) {
-      setToast({
-        show: true,
-        type: "error",
-        message: "Failed to load profile activity.",
-      });
-    }
-  };
+  try {
+    setLoading(true);
+
+    const { data } = await getAllContent();
+
+    setContents(data);
+  } catch (err) {
+    setToast({
+      show: true,
+      type: "error",
+      message: "Failed to load profile activity.",
+    });
+  } finally {
+    setLoading(false);
+  }
+};
  // throw new Error("Testing Error Boundary");
+ 
   return (
     <div className="min-h-screen bg-gray-100 px-8 py-8 lg:px-12">
       {/* Toast */}
-
+    {loading && <Loader fullScreen />}
       {toast.show && (
         <Toast
           message={toast.message}

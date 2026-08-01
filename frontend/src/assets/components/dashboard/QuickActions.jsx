@@ -43,7 +43,7 @@ export default function QuickActions() {
           </button>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3 shadow-sm">
+        <div  onClick={() => navigate("/dashboard/product-label")} className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3 shadow-sm">
           <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
             <Package className="h-5 w-5 text-blue-500" />
           </div>

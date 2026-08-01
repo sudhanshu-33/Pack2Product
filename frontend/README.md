@@ -1,59 +1,62 @@
 # Pack2Product
 
-Pack2Product is an AI-assisted web application designed for food processing businesses to create professional, SEO-friendly product content for e-commerce platforms. It simplifies content creation by generating product descriptions and managing generated content through a secure dashboard.
+Pack2Product is an AI-powered web application designed for food processing businesses to generate professional product content for e-commerce platforms. The application uses Google Gemini AI to create SEO-friendly product descriptions, ingredient benefit summaries, and packaging labels. It also provides secure authentication, content management, history tracking, and user profile management through an intuitive dashboard.
 
 ---
 
 # Features
- User Registration and Login
-- JWT Authentication
-- Google OAuth Login
-- AI Product Description Generator
-- Ingredient-Based Content Generation
-- Responsive Dashboard
-- Toast Notifications
-- Loading Indicators
-- MongoDB Database Integration
 
-### Authentication
+## Authentication
+
 - User Registration
 - User Login
 - Google OAuth Login
 - JWT Authentication
-- Protected API Routes
-- Protected Frontend Routes
+- Protected Routes
 - Password Hashing using bcrypt
 - Input Validation
 - Rate Limiting
 - Secure CORS Configuration
 
-### Dashboard
+## AI Features
+
+- AI Product Description Generator
+- Ingredient Benefits Generator
+- Packaging Labels Generator
+- Google Gemini 3.5 Flash Integration
+- Copy Generated Content
+- Save AI Content
+- Regenerate Content
+
+## Dashboard
+
 - Responsive Dashboard
-- Recent Content Section
+- Recent Content
 - Quick Actions
 - User Profile
+- AI Tools Navigation
 
-### Product Description Generator
-- Generate Product Descriptions
-- Copy Generated Content
-- Save Generated Description
-- Edit Saved Description
-- Delete Saved Description
-- View Description Details
+## History Management
 
-### History Management
-- View Saved Descriptions
-- Search Descriptions
-- Update Existing Descriptions
-- Delete Descriptions
-- History Modal View
+- View Saved AI Content
+- Search History
+- Edit Saved Content
+- Delete Content
+- View Content Details
 
-### User Experience
+## Profile
+
+- View Profile
+- Edit Profile
+- Activity Statistics
+- Content Summary
+
+## User Experience
+
 - Responsive Design
-- Loading Spinner
 - Toast Notifications
+- Loading Indicators
 - Error Handling
-
 ---
 
 # Tech Stack
@@ -82,23 +85,46 @@ Pack2Product is an AI-assisted web application designed for food processing busi
 
 ---
 
-##
+
 ## AI Feature
 
-The application uses Google Gemini 3.5 Flash to generate SEO-friendly product descriptions based on user inputs such as:
+The application uses Google Gemini 3.5 Flash to generate AI-powered content.
+
+### Product Description Generator
+
+Generates SEO-friendly product descriptions using:
 
 - Product Name
 - Brand Name
 - Category
 - Ingredients
-- Weight
+- Net Weight
 - Product Highlights
 - Target Audience
 - Tone
 - Description Length
 - Language
 
-The backend constructs an optimized prompt, sends it to Gemini, and returns the generated description to the frontend.
+### Ingredient Benefits Generator
+
+Generates concise ingredient benefit summaries using:
+
+- Product Name
+- Category
+- Ingredients
+- Target Audience
+- Tone
+
+### Packaging Labels Generator
+
+Generates professional front and back packaging labels using:
+
+- Product Information
+- Packaging Details
+- Manufacturing Information
+- Food Type
+- Storage Instructions
+- Optional Information
 
 ---
 
@@ -272,7 +298,13 @@ JWT_SECRET=your_jwt_secret
 ---
 ### AI
 
-- POST /api/ai/description
+## AI
+
+| Method | Endpoint |
+|---------|----------|
+| POST | /api/ai/description |
+| POST | /api/ai/ingredient-benefits |
+| POST | /api/ai/product-label |
 
 ## AI Workflow
 
@@ -339,14 +371,13 @@ JWT_SECRET=your_jwt_secret
 
 # Future Enhancements
 
-- Google Gemini AI Integration
-- Ingredient Benefits Generator
-- Packaging Content Generator
-- E-commerce Optimization Generator
+- Marketplace Listings Generator
 - Multi-language Support
-- Export to PDF
-- User Profile
+- Export AI Content to PDF
+- Avatar Upload
 - Analytics Dashboard
+- AI Content Templates
+- Bulk Content Generation
 
 ---
 

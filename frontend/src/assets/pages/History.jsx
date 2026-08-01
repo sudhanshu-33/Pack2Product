@@ -37,7 +37,6 @@ const [editItem, setEditItem] = useState(null);
 
 setHistory(sorted);
 setFilteredHistory(sorted);
-      setFilteredHistory(data);
     } catch (error) {
       setToast({
         show: true,
@@ -83,7 +82,7 @@ setFilteredHistory(sorted);
               History
             </h1>
             <p className="text-xs text-gray-500">
-              view and manage all prodcut description
+              view and manage all prodcut content.
             </p>
           </div>
         </div>
