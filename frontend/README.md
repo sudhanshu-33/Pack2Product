@@ -382,6 +382,23 @@ JWT_SECRET=your_jwt_secret
 
 ---
 
+### Frontend
+https://pack2-product.vercel.app
+
+### Backend
+https://pack2product.onrender.com
+
+
+### Database
+- MongoDB Atlas
+- Mongoose
+
+### Deployment
+- Vercel (Frontend)
+- Render (Backend)
+
+---
+
 # Author
 
 **Sudhanshu Kumar**
