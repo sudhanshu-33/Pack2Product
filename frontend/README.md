@@ -51,7 +51,7 @@ Pack2Product is an AI-powered web application designed for food processing busin
 - Activity Statistics
 - Content Summary
 
-## User Experience
+### User Experience
 
 - Responsive Design
 - Toast Notifications
