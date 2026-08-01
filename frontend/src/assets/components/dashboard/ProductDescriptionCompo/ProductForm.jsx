@@ -3,6 +3,8 @@ import { RefreshCcw, Sparkles, FileText } from "lucide-react";
 
 import { generateDescription } from "../../../services/api";
 
+
+
 const ProductForm = ({ formData,
   setFormData,
   setDescription,
@@ -171,7 +173,12 @@ const ProductForm = ({ formData,
               <option value="spices">Spices</option>
               <option value="snacks">Snacks</option>
               <option value="beverages">Beverages</option>
+              <option value="dairy">Tea</option>
+              <option value="dairy">Jam</option>
+              <option value="dairy">Pickles</option>
+              <option value="dairy">Bakery</option>
               <option value="dairy">Dairy</option>
+              <option value="dairy">Coffee</option>
             </select>
           </div>
 
@@ -202,7 +209,7 @@ const ProductForm = ({ formData,
               onChange={handleChange}
               maxLength={300}
               placeholder="100% Raw Organic Honey"
-              className="w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white dark:text-black px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 resize-none transition"
+              className="w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white dark:text-black px-4 py-3 text-sm "
             />
             <p className="text-xs text-gray-400 text-right mt-1">
               {formData.ingredients.length}/300
@@ -220,7 +227,7 @@ const ProductForm = ({ formData,
               onChange={handleChange}
               maxLength={300}
               placeholder={"• 100% Natural\n• No Preservatives\n• Rich In Antioxidants\n• Premium Quality"}
-              className="w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white text-black px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-green-200 focus:border-green-400 resize-none transition"
+              className="w-full rounded-xl border border-gray-300 dark:border-gray-400 bg-white dark:bg-white text-black px-4 py-3 text-sm "
             />
             <p className="text-xs text-gray-400 text-right mt-1">
               {formData.highlights.length}/300

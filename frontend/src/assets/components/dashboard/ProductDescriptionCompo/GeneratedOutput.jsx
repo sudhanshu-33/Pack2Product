@@ -46,6 +46,7 @@ const GeneratedOutput = ({
     await saveDescription({
       ...formData,
       generatedContent: description,
+       type: "Product Description",
     });
 
     setToast({

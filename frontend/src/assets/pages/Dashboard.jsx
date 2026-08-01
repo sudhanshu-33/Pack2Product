@@ -15,7 +15,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
   const { user } = useAuth();
 
-console.log("Sidebar render:", user);
+
   const handleGenerate = () => {
     setLoading(true);
     setTimeout(() => {

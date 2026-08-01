@@ -21,8 +21,7 @@
       logout();
       navigate("/login");
     };
-    console.log("Sidebar User:", user);
-     console.log("User name:", user?.name);
+   
     const navItem = (label, Icon, path) => (
       <Link to={path}>
         <button
