@@ -381,6 +381,37 @@ JWT_SECRET=your_jwt_secret
 - Bulk Content Generation
 
 ---
+# Project Screenshots
+
+## Home Page
+
+![Home Page](frontend/src/assets/images/Home-page.png)
+
+## Dashboard
+
+![Dashboard](frontend/src/assets/images/Dashboard.png)
+
+## Product Description Generator
+
+![Product Description](frontend/src/assets/images/productDescription.png)
+
+## History Page
+
+![History](frontend/src/assets/images/History.png)
+
+## profile Page
+
+![Profile](frontend/src/assets/images/Profile.png)
+
+## Register Page
+
+![Register](frontend/src/assets/images/register.png)
+
+## Login Page
+
+![login](frontend/src/assets/images/Login.png)
+
+----
 
 ### Frontend
 https://pack2-product.vercel.app
@@ -388,7 +419,8 @@ https://pack2-product.vercel.app
 ### Backend
 https://pack2product.onrender.com
 
-
+### Github
+ https://github.com/yourusername/Pack2Product 
 ### Database
 - MongoDB Atlas
 - Mongoose
