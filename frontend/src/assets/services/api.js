@@ -63,3 +63,7 @@ export const generateIngredientBenefits = (data) =>
 
 export const generatePackagingLabel = (data) =>
   API.post("/api/ai/product-label", data);
+
+
+export const generateMarketplaceListing = (data) =>
+  API.post("/api/ai/marketplace-listing", data);
