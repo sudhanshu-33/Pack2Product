@@ -8,6 +8,7 @@
     User,
     Settings,
     LogOut,
+    ShoppingBag,
     
   } from "lucide-react";
   import LOGO from "../../images/logo.png";
@@ -45,7 +46,7 @@
         <div className="h-[72px] flex items-center px-6 border-b border-white/10">
           <div className="flex items-center gap-3">
             <div className="h-9 w-9 rounded-xl flex items-center justify-center font-bold text-sm text-white">
-              <img src={LOGO} />
+              <img src={LOGO} alt="Pack2Product Logo" className="w-full h-full object-contain"/>
             </div>
             <span className="font-bold text-base text-white tracking-tight">
               Pack2<span className="text-orange-500">Product</span>
@@ -67,13 +68,13 @@
 
           {navItem("Packaging Labels", User, "/dashboard/product-label")}
 
-          {navItem("Marketplace Listings", Settings, "/dashboard/marketplace")}
+          {navItem("Marketplace Listings", ShoppingBag, "/dashboard/marketplace")}
 
           {navItem("History", History, "/dashboard/history")}
 
           {navItem("Profile", User, "/dashboard/profile")}
 
-          {navItem("Settings", Settings, "/dashboard/settings")}
+          
         </nav>
 
 <div className="border-t border-white/10 p-4">

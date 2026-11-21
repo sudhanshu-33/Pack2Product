@@ -2,7 +2,7 @@ import React from "react";
 import {
   FileText,
   Leaf,
-  Search,
+  
   ShoppingCart,
   ArrowRight,
   Package,
@@ -56,18 +56,26 @@ export default function QuickActions() {
           </button>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3 shadow-sm">
-          <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center">
-            <ShoppingCart className="h-5 w-5 text-orange-500" />
-          </div>
-          <h3 className="font-semibold text-gray-900">Marketplace Listing</h3>
-          <p className="text-xs text-gray-500">
-            Generate content for marketplaces.
-          </p>
-          <button className="h-8 w-8 rounded-full border border-orange-200 flex items-center justify-center hover:bg-orange-50 mt-auto">
-            <ArrowRight className="h-4 w-4 text-orange-500" />
-          </button>
-        </div>
+     <div
+  onClick={() => navigate("/dashboard/marketplace")}
+  className="bg-white rounded-2xl border border-gray-100 p-5 flex flex-col gap-3 shadow-sm cursor-pointer hover:shadow-md transition"
+>
+  <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center">
+    <ShoppingCart className="h-5 w-5 text-orange-500" />
+  </div>
+
+  <h3 className="font-semibold text-gray-900">
+    Marketplace Listing
+  </h3>
+
+  <p className="text-xs text-gray-500">
+    Generate SEO-friendly content for marketplaces.
+  </p>
+
+  <button className="h-8 w-8 rounded-full border border-orange-200 flex items-center justify-center hover:bg-orange-50 mt-auto">
+    <ArrowRight className="h-4 w-4 text-orange-500" />
+  </button>
+</div>
       </div>
     </div>
   );

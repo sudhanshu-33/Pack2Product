@@ -6,6 +6,7 @@ import Dashboard from "./assets/pages/Dashboard";
 import ProductDescription from "../src/assets/pages/ProductDesci";
 import IngredientBenefits from "../src/assets/pages/IngredientBenefits";
 import PackagingLabels from "../src/assets/pages/PackagingLabels";
+import MarketplaceListing from "./assets/pages/MarketplaceListing";
 import History from "./assets/pages/History";
 import GoogleSuccess from "./assets/pages/GoogleSuccess";
 import Profile from "./assets/pages/Profile";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dashboard/description" element={<ProductDescription />} />
         <Route path="/dashboard/ingredient-benefits" element={<IngredientBenefits />} />
         <Route path="/dashboard/product-label" element={<PackagingLabels />} />
+        <Route path="/dashboard/marketplace" element={<MarketplaceListing />}/>
         <Route path="/dashboard/history" element={<History />} />
         <Route path="/dashboard/profile" element={<Profile />} />
         <Route path="/google-success" element={<GoogleSuccess />} />
