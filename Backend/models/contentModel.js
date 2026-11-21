@@ -15,7 +15,7 @@ const contentSchema = new mongoose.Schema(
         "Product Description",
         "Ingredient Benefits",
         "Packaging Labels",
-        "Marketplace Listings",
+        "Marketplace Listing",
       ],
       required: true,
     },
@@ -71,7 +71,15 @@ const contentSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    price: {
+  type: String,
+  trim: true,
+},
 
+keywords: {
+  type: String,
+  trim: true,
+},
     // AI Generated Output
     generatedContent: {
       type: String,

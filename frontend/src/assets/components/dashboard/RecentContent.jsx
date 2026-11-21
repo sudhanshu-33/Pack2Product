@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MoreVertical } from "lucide-react";
+
 import { getAllContent } from "../../services/api";
 
 export default function RecentContent() {
@@ -15,7 +15,11 @@ export default function RecentContent() {
       const { data } = await getAllContent();
 
       // Latest 5 items
-      setContents(data.slice(0, 5));
+     const sorted = [...data].sort(
+  (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+);
+
+setContents(sorted.slice(0, 5));
 
     } catch (error) {
       console.log(error);
@@ -49,7 +53,7 @@ export default function RecentContent() {
             >
 
               <div className="h-10 w-10 rounded-lg bg-green-100 flex items-center justify-center text-green-700 font-bold">
-                {item.productName.charAt(0)}
+               {(item.productName || "P").charAt(0).toUpperCase()}
               </div>
 
               <div className="flex-1 min-w-0">
@@ -71,10 +75,6 @@ export default function RecentContent() {
               <span className="text-xs text-gray-400 hidden sm:block">
                 {new Date(item.createdAt).toLocaleDateString()}
               </span>
-
-              <button className="text-gray-400 hover:text-gray-600">
-                <MoreVertical className="h-4 w-4" />
-              </button>
 
             </div>
 

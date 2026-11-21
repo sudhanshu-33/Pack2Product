@@ -1,9 +1,8 @@
 import { FileText, Bookmark, Activity, Sparkles } from "lucide-react";
 
 export default function ProfileStats({ contents,user }) {
-  const generated = contents.length;
-
-  const saved = contents.length;
+ const totalContent = contents.length;
+const saved = totalContent;
 
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();

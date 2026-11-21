@@ -9,20 +9,21 @@ const EditModal = ({
   fetchHistory,
   setToast,
 }) => {
-  const [formData, setFormData] = useState({
-    productName: "",
-    brandName: "",
-    category: "",
-    ingredients: "",
-    weight: "",
-    highlights: "",
-    audience: "",
-    tone: "",
-    length: "",
-    language: "",
-    generatedContent: "",
-  });
-
+ const [formData, setFormData] = useState({
+  productName: "",
+  brandName: "",
+  category: "",
+  ingredients: "",
+  weight: "",
+  price: "",
+  highlights: "",
+  audience: "",
+  tone: "",
+  keywords: "",
+  length: "",
+  language: "",
+  generatedContent: "",
+});
   useEffect(() => {
     if (item) {
       setFormData(item);
@@ -45,7 +46,7 @@ const EditModal = ({
       setToast({
         show: true,
         type: "success",
-        message: "Description updated successfully.",
+        message: "content updated successfully.",
       });
 
       fetchHistory();
@@ -58,7 +59,7 @@ const EditModal = ({
         type: "error",
         message:
           error.response?.data?.message ||
-          "Failed to update description.",
+          "Failed to update content.",
       });
 
     }
@@ -75,8 +76,8 @@ const EditModal = ({
         <div className="flex justify-between items-center mb-6">
 
           <h2 className="text-xl font-bold">
-            Edit Product Description
-          </h2>
+  Edit {item.type || "Product Content"}
+</h2>
 
           <button onClick={onClose}>
             <X />
@@ -117,6 +118,22 @@ const EditModal = ({
             placeholder="Weight"
             className={inputClass}
           />
+           
+           <input
+  name="price"
+  value={formData.price || ""}
+  onChange={handleChange}
+  placeholder="Product Price"
+  className={inputClass}
+/>
+
+<input
+  name="audience"
+  value={formData.audience || ""}
+  onChange={handleChange}
+  placeholder="Target Audience"
+  className={inputClass}
+/>
 
         </div>
 
@@ -137,6 +154,14 @@ const EditModal = ({
           placeholder="Highlights"
           className="w-full border rounded-lg p-2 mt-4"
         />
+        <textarea
+  rows={3}
+  name="keywords"
+  value={formData.keywords || ""}
+  onChange={handleChange}
+  placeholder="SEO Keywords"
+  className="w-full border rounded-lg p-2 mt-4"
+/>
 
         <textarea
           rows={8}

@@ -51,8 +51,10 @@ setFilteredHistory(sorted);
 
   useEffect(() => {
     const result = history.filter((item) =>
-      item.productName.toLowerCase().includes(search.toLowerCase()),
-    );
+  (item.productName || "")
+    .toLowerCase()
+    .includes(search.toLowerCase())
+);
     setFilteredHistory(result);
   }, [search, history]);
 
@@ -82,7 +84,7 @@ setFilteredHistory(sorted);
               History
             </h1>
             <p className="text-xs text-gray-500">
-              view and manage all prodcut content.
+             View and manage all your generated product content.
             </p>
           </div>
         </div>
@@ -127,7 +129,7 @@ setFilteredHistory(sorted);
               <p className="text-sm text-gray-400 text-center max-w-xs">
                 {search
                   ? `No results for "${search}".`
-                  : "Your generated descriptions will appear here."}
+                  : "Your generated content will appear here."}
               </p>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Eye, Trash2, Calendar, Tag, Pencil, FileText,
+import { Eye,ShoppingBag, Trash2, Calendar, Tag, Pencil, FileText,
   Leaf,
   Package,  } from "lucide-react";
 
@@ -37,7 +37,7 @@ const HistoryCard = ({
       });
     }
   };
-  const getTypeIcon = (type) => {
+const getTypeIcon = (type) => {
   switch (type) {
     case "Product Description":
       return <FileText size={18} className="text-blue-600" />;
@@ -47,6 +47,9 @@ const HistoryCard = ({
 
     case "Packaging Labels":
       return <Package size={18} className="text-orange-600" />;
+
+    case "Marketplace Listing":
+      return <ShoppingBag size={18} className="text-purple-600" />;
 
     default:
       return <Tag size={18} />;

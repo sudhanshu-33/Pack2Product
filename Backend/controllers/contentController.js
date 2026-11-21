@@ -91,28 +91,35 @@ It offers excellent taste, freshness, and quality, making it suitable for everyd
 
 };
 
- const updateContent = async (req, res) => {
-
+const updateContent = async (req, res) => {
   try {
-
     const content = await Content.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true }
+      {
+        new: true,
+        runValidators: true,
+      }
     );
 
-    res.status(200).json(content);
+    if (!content) {
+      return res.status(404).json({
+        message: "Content not found.",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Content updated successfully.",
+      content,
+    });
 
   } catch (error) {
-
     res.status(500).json({
       message: error.message,
     });
-
   }
-
 };
-
  const deleteContent = async (req, res) => {
 
   try {
