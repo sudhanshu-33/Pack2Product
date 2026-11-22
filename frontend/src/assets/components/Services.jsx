@@ -46,7 +46,7 @@ function Services() {
 
         <div className="md:col-span-10 text-center md:text-left">
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-[#344D3B]">
-            AI Product Descriptions
+           Product Descriptions
           </h3>
 
           <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-700 leading-7">
@@ -102,7 +102,7 @@ function Services() {
 
         <div className="md:col-span-10 text-center md:text-left">
           <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-[#344D3B]">
-            E-commerce Optimization
+            MarkeyPlace Listings
           </h3>
 
           <p className="mt-3 text-sm sm:text-base text-gray-600 dark:text-gray-700 leading-7">
