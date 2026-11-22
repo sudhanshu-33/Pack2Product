@@ -13,7 +13,7 @@ import History from "./assets/pages/History";
 import GoogleSuccess from "./assets/pages/GoogleSuccess";
 import Profile from "./assets/pages/Profile";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./assets/components/ProtectedRoute";
 
 function App() {
   return (
